@@ -3,7 +3,7 @@
   <ion-navbar>
     
     
-<ion-title>Personen verwalten </ion-title>
+<ion-title>Ausgaben verwalten </ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
         <ion-icon name="add"></ion-icon>
@@ -13,13 +13,71 @@
 </ion-header>
 
 <ion-content>
-  
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    {{ item }}
-  </ion-item>
-</ion-list>
+<ion-card>
+  <ion-item>
+      <ion-icon name="cafe" item-right></ion-icon>
+      <h1>Kaffee trinken am Marktplatz</h1>
+    </ion-item>
+  <ion-card-content>
+    <p>Gesamtbetrag: 27,50€</p>
+    <p>Person 1 Bezahlt: 10,50€</p>
+    <p>Person 2 Bezahlt: 10,50€</p>
+    <p>Person 3 Bezahlt: 7,50€</p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="cash"></ion-icon>
+        <div>Aufteilung</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="clipboard"></ion-icon>
+        <div>Bearbeiten</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        27.01.2017
+      </ion-note>
+    </ion-col>
+  </ion-row>
 
-  
+</ion-card>
+
+<ion-card>
+  <ion-item>
+      <ion-icon name="restaurant" item-right></ion-icon>
+      <h1>Abendessen</h1>
+    </ion-item>
+  <ion-card-content>
+    <p>Gesamtbetrag: 102,30€</p>
+    <p>Person 1 Bezahlt: 10,50€</p>
+    <p>Person 2 Bezahlt: 10,50€</p>
+    <p>Person 3 Bezahlt: 7,50€</p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="cash"></ion-icon>
+        <div>Aufteilung</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="clipboard"></ion-icon>
+        <div>Bearbeiten</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        27.01.2017
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
 </ion-content>

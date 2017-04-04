@@ -4,11 +4,50 @@
       
       Gruppen verwalten
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 
   
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+
+<ion-content>
+<ion-card>
+  <ion-item>
+      <ion-icon name="contacts" item-right></ion-icon>
+      <h1>Gruppenname</h1>
+    </ion-item>
+  <ion-card-content>
+    <p>Mitglied 1 </p>
+    <p>Mitglied 2 </p>
+    <p>Mitglied 3 </p>
+  </ion-card-content>
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="clipboard"></ion-icon>
+        <div>Bearbeiten</div>
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="close"></ion-icon>
+        <div>Löschen</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+      <ion-note>
+        27.01.2017
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
 </ion-content>
