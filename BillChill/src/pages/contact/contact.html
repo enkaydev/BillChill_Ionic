@@ -2,12 +2,7 @@
   
   <ion-navbar>
     
-    <ion-buttons start>
-      <button ion-button icon-only>
-        
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
+    
 <ion-title>Personen verwalten </ion-title>
     <ion-buttons end>
       <button ion-button icon-only>
@@ -17,14 +12,14 @@
   </ion-navbar>
 </ion-header>
 
-
 <ion-content>
   
-  <ion-card>
-    <ion-card-content>
-    <ion-icon name="contact"></ion-icon> Max Mustermann
-  </ion-card-content>
-</ion-card>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    {{ item }}
+  </ion-item>
+</ion-list>
 
   
 </ion-content>
