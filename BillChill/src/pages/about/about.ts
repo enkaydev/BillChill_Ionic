@@ -11,14 +11,17 @@ export class AboutPage {
 
 
   constructor(public navCtrl: NavController, private platform: Platform, public storage: Storage, ) {
-
   }
 
   setData(){
 console.log("set data");
+this.storage.set('MyData', 'hello');
   };
 
   getData(){
-console.log("get data");
-  };
+this.storage.get('MyData').then((data) =>{
+  console.log(data);
+});
+  
+  }
 }
