@@ -10,7 +10,7 @@ export class DBService {
 
     initDB() {
         PouchDB.plugin(cordovaSqlitePlugin);
-        this._db = new PouchDB('BillChill.db', { adapter: 'cordova-sqlite' });
+        this._db = new PouchDB('BillChill3.db', { adapter: 'cordova-sqlite' });
     }
 
 add(data) {  

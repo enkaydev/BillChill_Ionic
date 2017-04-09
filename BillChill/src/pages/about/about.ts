@@ -49,6 +49,16 @@ public Groups= [];
                 .catch(console.error.bind(console));
     }
 
+    delete() {
+        this.dbService.delete(this.Groups)
+            .catch(console.error.bind(console));
+
+        
+    }
+
+
+
+
 //########################################################################################
 public setData(data){ };
 
@@ -62,7 +72,7 @@ public showPrompt() {
       title: 'Gruppe hinzufügen',
         inputs: [
         {
-          name: 'title',
+          name: 'Name',
           placeholder: 'Gruppenname'
         },
       ],

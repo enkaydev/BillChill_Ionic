@@ -17,10 +17,10 @@
 <ion-content>
 
 <ion-content>
-<ion-card>
+<ion-card *ngFor="let Groups of Groups">
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
-      <h1>Gruppenname</h1>
+      <h1>{{Groups.Name}}</h1>
     </ion-item>
   <ion-card-content>
     <p>Mitglied 1 </p>
@@ -49,22 +49,6 @@
 
 </ion-card>
 
-<ion-content>  
-    <ion-list >
-        <ion-item *ngFor="let title of titles"> Test {{title}} </ion-item>
-        </ion-list>
-
-<ion-list>
-        <ion-item>
-            <ion-label>Name</ion-label>
-            <ion-input text-right type="text" [(ngModel)]="Groups.Name"></ion-input>
-        </ion-item>
-        
-    </ion-list>
-    <button ion-button block (click)="save()">Anlegen</button>
-        
-</ion-content>  
-
-
-
+    
+    
 </ion-content>
