@@ -1,8 +1,12 @@
-import { Component, } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import {Storage} from '@ionic/storage';
-import { NavController, Platform,ToastController } from 'ionic-angular';
+import { NavController, Platform,ToastController, ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { DBService } from '../../services/db.service';  
+//#####################################################
+
+
 
 @Component({
   selector: 'page-about',
@@ -10,51 +14,47 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 })
 export class AboutPage {
 
+public Groups= [];
 
-  constructor(public navCtrl: NavController, private platform: Platform, public storage: Storage,public alertCtrl: AlertController, private sqlite: SQLite, private toastCtrl: ToastController ) {
+  constructor(
+  public navCtrl: NavController,
+  private platform: Platform, 
+  public storage: Storage,
+  public alertCtrl: AlertController, 
+  private sqlite: SQLite, 
+  private toastCtrl: ToastController, 
+  private dbService: DBService,
+  private zone: NgZone,
+  private modalCtrl: ModalController,) {
 
-this.sqlite.create({
-  name: 'data.db',
-  location: 'default'
-})
-  .then((db: SQLiteObject) => {
-
-
-    db.executeSql('create table Groups(name VARCHAR(32))', {})
-      .then(() => console.log('Executed SQL'))
-      .catch(e => console.log(e));
-
-
-  })
-  .catch(e => console.log(e));
-
-
-
+ 
   }
 
-public setData(data){
+  ionViewDidLoad() {
+        this.platform.ready().then(() => {
+            this.dbService.initDB();
 
-data.db.executeSql('Insert Into Groups(Testgruppe)', {})
-
-  };
- 
- public getData(){
-this.storage.get('Gruppenname').then((data) =>{
-  console.log(data);
-  //console.log(data.db.executeSql('Select * From Groups', {}));
-
-
-
-
-  
-});
-
-
+            this.dbService.getAll()
+                .then(data => {
+                    this.zone.run(() => {
+                        this.Groups = data;
+                    });
+                })
+                .catch(console.error.bind(console));
+        });
     }
 
     
 
-showPrompt() {
+//########################################################################################
+public setData(data){ };
+
+//######################################################################################## 
+public getData(){ };
+
+//#######################################################################################
+// Add Group Pop Up Fenster
+public showPrompt() {
     let prompt = this.alertCtrl.create({
       title: 'Gruppe hinzufügen',
         inputs: [
@@ -82,12 +82,11 @@ showPrompt() {
       ]
     });
     prompt.present();
-
-
-    
+  
   }
 
- 
+//######################################################################################
+//Toast Funktion 
 public presentToast(Messagetoshow) {
   let toast = this.toastCtrl.create({
     message: Messagetoshow,
@@ -101,12 +100,6 @@ public presentToast(Messagetoshow) {
 
   toast.present();
 }
-
-
-
-
- 
-
 }
 
 
