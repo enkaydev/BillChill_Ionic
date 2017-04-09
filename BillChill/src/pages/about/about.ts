@@ -68,8 +68,9 @@ public showPrompt() {
           text: 'Speichern',
           handler: data => {
             console.log('Speichern clicked');
+            this.dbService.add(data);
             this.presentToast('Gruppe erfolgreich hinzugefügt!')
-          
+            
           }
         },
         {
