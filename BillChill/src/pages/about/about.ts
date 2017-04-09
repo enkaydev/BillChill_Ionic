@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import {Storage} from '@ionic/storage';
-import { NavController, Platform } from 'ionic-angular';
+import { NavController, Platform,ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 
@@ -11,8 +11,7 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 export class AboutPage {
 
 
-
-  constructor(public navCtrl: NavController, private platform: Platform, public storage: Storage,public alertCtrl: AlertController, private sqlite: SQLite ) {
+  constructor(public navCtrl: NavController, private platform: Platform, public storage: Storage,public alertCtrl: AlertController, private sqlite: SQLite, private toastCtrl: ToastController ) {
 
 this.sqlite.create({
   name: 'data.db',
@@ -31,23 +30,18 @@ this.sqlite.create({
 
 
 
-
-
-
-
-
   }
 
 public setData(data){
-console.log("set data");
-this.storage.set('Gruppenname', data);
 
+data.db.executeSql('Insert Into Groups(Testgruppe)', {})
 
   };
  
  public getData(){
 this.storage.get('Gruppenname').then((data) =>{
   console.log(data);
+  //console.log(data.db.executeSql('Select * From Groups', {}));
 
 
 
@@ -57,6 +51,8 @@ this.storage.get('Gruppenname').then((data) =>{
 
 
     }
+
+    
 
 showPrompt() {
     let prompt = this.alertCtrl.create({
@@ -72,14 +68,15 @@ showPrompt() {
           text: 'Speichern',
           handler: data => {
             console.log('Speichern clicked');
-            this.setData(data);
-            
+            this.presentToast('Gruppe erfolgreich hinzugefügt!')
+          
           }
         },
         {
           text: 'Abbrechen',
           handler: data => {
             console.log('Abbrechen clicked');
+            this.presentToast('Abbruch')
           }
         }
       ]
@@ -87,13 +84,23 @@ showPrompt() {
     prompt.present();
 
 
-
-
     
   }
 
  
+public presentToast(Messagetoshow) {
+  let toast = this.toastCtrl.create({
+    message: Messagetoshow,
+    duration: 1200,
+    position: 'top'
+  });
 
+  toast.onDidDismiss(() => {
+    console.log('Dismissed toast');
+  });
+
+  toast.present();
+}
 
 
 
