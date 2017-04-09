@@ -49,14 +49,20 @@
 
 </ion-card>
 
-<button ion-button (click)= "setData()"> Daten Speichern </button>
-<button ion-button (click)= "getData()"> Daten Laden </button>
-
 <ion-content>  
-    <ion-list inset>
-        <ion-item > Test </ion-item>
-        <ion-item > Test2 </ion-item>
-      </ion-list>
+    <ion-list >
+        <ion-item *ngFor="let title of titles"> Test {{title}} </ion-item>
+        </ion-list>
+
+<ion-list>
+        <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input text-right type="text" [(ngModel)]="Groups.Name"></ion-input>
+        </ion-item>
+        
+    </ion-list>
+    <button ion-button block (click)="save()">Anlegen</button>
+        
 </ion-content>  
 
 

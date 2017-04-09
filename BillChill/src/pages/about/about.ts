@@ -44,7 +44,10 @@ public Groups= [];
         });
     }
 
-    
+    save() {
+       this.dbService.add(this.Groups)
+                .catch(console.error.bind(console));
+    }
 
 //########################################################################################
 public setData(data){ };
