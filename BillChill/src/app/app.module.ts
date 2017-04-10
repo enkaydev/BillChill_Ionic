@@ -21,7 +21,7 @@ import { DBService } from '../services/db.service';
   imports: [
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
-      driverOrder: ['sqlite', 'websql']
+      //driverOrder: ['sqlite', 'websql']
     })
   ],
   bootstrap: [IonicApp],
@@ -39,7 +39,7 @@ import { DBService } from '../services/db.service';
    
     
    
-    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService
+    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService, SQLite,
   ]
 })
 export class AppModule {}

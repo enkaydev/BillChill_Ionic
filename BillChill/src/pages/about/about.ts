@@ -58,13 +58,6 @@ public Groups= [];
 
 
 
-
-//########################################################################################
-public setData(data){ };
-
-//######################################################################################## 
-public getData(){ };
-
 //#######################################################################################
 // Add Group Pop Up Fenster
 public showPrompt() {
@@ -83,6 +76,7 @@ public showPrompt() {
             console.log('Speichern clicked');
             this.dbService.add(data);
             this.presentToast('Gruppe erfolgreich hinzugefügt!')
+            
             
           }
         },
@@ -114,6 +108,19 @@ public presentToast(Messagetoshow) {
 
   toast.present();
 }
+
+
+doRefresh(refresher) {
+
+            
+
+    setTimeout(() => {
+     
+      refresher.complete();
+    }, 2000);
+     location.reload;
+  }
+
 }
 
 

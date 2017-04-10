@@ -41,12 +41,44 @@ getAll() {
                     return row.doc;
                 });
 
+                // Listen for changes on the database.
+                this._db.changes({ live: true, since: 'now', include_docs: true})
+                    .on('change', this.onDatabaseChange);
+
                  return this._Groups;
             });
     } else {
         // Return cached data as a promise
         return Promise.resolve(this._Groups);
     }
+}
+
+private onDatabaseChange = (change) => {  
+    var index = this.findIndex(this._Groups, change.id);
+    var Groups = this._Groups[index];
+
+    if (change.deleted) {
+        if (Groups) {
+            this._Groups.splice(index, 1); // delete
+        }
+    } else {
+        change.doc.Date = new Date(change.doc.Date);
+        if (Groups && Groups._id === change.id) {
+            this._Groups[index] = change.doc; // update
+        } else {
+            this._Groups.splice(index, 0, change.doc) // insert
+        }
+    }
+}
+
+// Binary search, the array is by default sorted by _id.
+private findIndex(array, id) {  
+    var low = 0, high = array.length, mid;
+    while (low < high) {
+    mid = (low + high) >>> 1;
+    array[mid]._id < id ? low = mid + 1 : high = mid
+    }
+    return low;
 }
 
 

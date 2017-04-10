@@ -14,9 +14,15 @@
   
 </ion-header>
 
-<ion-content>
 
 <ion-content>
+
+ <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+
 <ion-card *ngFor="let Groups of Groups">
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
@@ -35,7 +41,7 @@
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small>
+      <button ion-button icon-left clear small (click)="delete();">
         <ion-icon name="close"></ion-icon>
         <div>Löschen</div>
       </button>
