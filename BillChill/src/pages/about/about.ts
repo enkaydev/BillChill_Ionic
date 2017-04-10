@@ -110,17 +110,6 @@ public presentToast(Messagetoshow) {
 }
 
 
-doRefresh(refresher) {
-
-            
-
-    setTimeout(() => {
-     
-      refresher.complete();
-    }, 2000);
-     location.reload;
-  }
-
 }
 
 
