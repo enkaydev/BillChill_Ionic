@@ -17,19 +17,15 @@
 
 <ion-content>
 
- <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+ 
 
-
-
-<ion-card *ngFor="let Groups of Groups">
+<ion-card *ngFor="let Groups of Groups" (click)="showDetail(Groups)">
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
-      <h1>{{Groups.Name}}</h1>
+      <h1 >{{Groups.Name}}</h1>
     </ion-item>
   <ion-card-content>
-    <p>Mitglied 1 </p>
+    <p >{{Groups.Member}} </p>
     <p>Mitglied 2 </p>
     <p>Mitglied 3 </p>
   </ion-card-content>
@@ -41,7 +37,7 @@
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small (click)="delete();">
+      <button ion-button icon-left clear small (click)="delete()">
         <ion-icon name="close"></ion-icon>
         <div>Löschen</div>
       </button>

@@ -3,7 +3,8 @@ import {Storage} from '@ionic/storage';
 import { NavController, Platform,ToastController, ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
-import { DBService } from '../../services/db.service';  
+import { DBService } from '../../services/db.service'; 
+import { GroupsPage } from '../groups/groups';  
 //#####################################################
 
 
@@ -14,6 +15,7 @@ import { DBService } from '../../services/db.service';
 })
 export class AboutPage {
 
+ data:any ;
 public Groups= [];
 
   constructor(
@@ -44,6 +46,9 @@ public Groups= [];
         });
     }
 
+
+
+
     save() {
        this.dbService.add(this.Groups)
                 .catch(console.error.bind(console));
@@ -52,12 +57,11 @@ public Groups= [];
     delete() {
         this.dbService.delete(this.Groups)
             .catch(console.error.bind(console));
-
-        
+     
     }
 
 
-
+ 
 //#######################################################################################
 // Add Group Pop Up Fenster
 public showPrompt() {
@@ -68,6 +72,13 @@ public showPrompt() {
           name: 'Name',
           placeholder: 'Gruppenname'
         },
+
+        {
+          name: 'Member',
+          placeholder: 'Mitglied1'
+        },
+
+                
       ],
       buttons: [
         {
@@ -76,7 +87,6 @@ public showPrompt() {
             console.log('Speichern clicked');
             this.dbService.add(data);
             this.presentToast('Gruppe erfolgreich hinzugefügt!')
-            
             
           }
         },
@@ -108,6 +118,7 @@ public presentToast(Messagetoshow) {
 
   toast.present();
 }
+
 
 
 }
