@@ -22,11 +22,11 @@
 <ion-card *ngFor="let Groups of Groups" (click)="showDetail(Groups)">
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
-      <h1 >{{Groups.Name}}</h1>
+      <h1 >{{Groups.name}}</h1>
     </ion-item>
   <ion-card-content>
     <p >{{Groups.Member}} </p>
-    <p>Mitglied 2 </p>
+    <p>{{Groups.Date}}</p>
     <p>Mitglied 3 </p>
   </ion-card-content>
   <ion-row>

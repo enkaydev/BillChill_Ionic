@@ -60,7 +60,7 @@ public Groups= [];
          }
 
 showDetail(group) {
-        let modal = this.modalCtrl.create(GroupsPage, { group: group });
+        let modal = this.modalCtrl.create(GroupsPage, { groups: group });
         modal.present();
     }
  

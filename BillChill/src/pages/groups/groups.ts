@@ -18,6 +18,7 @@ export class GroupsPage {
     public isNew = true;
     public action = 'Add';
     public isoDate = '';
+    public name = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
@@ -33,7 +34,6 @@ export class GroupsPage {
 
 save() {
         this.groups.Date = new Date(this.isoDate);
-
         if (this.isNew) {
             this.dbService.add(this.groups)
                 .catch(console.error.bind(console));

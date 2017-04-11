@@ -20,8 +20,14 @@
 <ion-content padding>  
     <ion-list>
         <ion-item>
-            <ion-label>Name</ion-label>
-             <ion-input text-right type="text" [(ngModel)]="Groups"></ion-input>
+            <ion-label>Gruppenname</ion-label>
+             <ion-input text-right type="text" [(ngModel)]="groups.name"></ion-input>
+        
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Erstellt am</ion-label>
+             <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
         
         </ion-item>
         
