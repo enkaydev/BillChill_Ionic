@@ -57,10 +57,12 @@ public Groups= [];
     delete() {
         this.dbService.delete(this.Groups)
             .catch(console.error.bind(console));
-     
+         }
+
+showDetail(group) {
+        let modal = this.modalCtrl.create(GroupsPage, { group: group });
+        modal.present();
     }
-
-
  
 //#######################################################################################
 // Add Group Pop Up Fenster

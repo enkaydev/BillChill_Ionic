@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams , ViewController } from 'ionic-angular';
+import { DBService } from '../../services/db.service'; 
 
 /*
   Generated class for the Groups page.
@@ -13,10 +14,48 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class GroupsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+    public groups: any = {};
+    public isNew = true;
+    public action = 'Add';
+    public isoDate = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GroupsPage');
+    let editGroup = this.navParams.get('groups');
+
+        if (editGroup) {
+            this.groups = editGroup;
+            this.isNew = false;
+            this.action = 'Edit';
+            this.isoDate = this.groups.Date.toISOString().slice(0, 10);
+        }
   }
 
+save() {
+        this.groups.Date = new Date(this.isoDate);
+
+        if (this.isNew) {
+            this.dbService.add(this.groups)
+                .catch(console.error.bind(console));
+        } else {
+            this.dbService.update(this.groups)
+                .catch(console.error.bind(console));
+        }
+
+        this.dismiss();
+    }
+
+    delete() {
+        this.dbService.delete(this.groups)
+            .catch(console.error.bind(console));
+
+        this.dismiss();
+    }
+
+    dismiss() {
+        this.viewCtrl.dismiss(this.groups);
+    }
 }
+
+
+
