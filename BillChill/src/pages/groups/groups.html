@@ -27,13 +27,26 @@
         <ion-item>
             <ion-label>Mitglied </ion-label>
              
-             <ion-input text-right type="text" [(ngModel)]="groups.member"></ion-input>
+             <ion-input text-right type="text" [(ngModel)]="groups.member0"></ion-input>
               <button item-right (click)="addMember()"><ion-icon name="add"></ion-icon></button>
-      
-          
-
+     
         </ion-item>
         
+      <ion-item>
+           <ion-label>Mitglied </ion-label>
+             <ion-input text-right type="text" [(ngModel)]="groups.member1"></ion-input>
+        </ion-item>
+
+        <ion-item>
+           <ion-label>Mitglied </ion-label>
+             <ion-input text-right type="text" [(ngModel)]="groups.member2"></ion-input>
+        </ion-item>
+
+        <ion-item>
+           <ion-label>Mitglied </ion-label>
+             <ion-input text-right type="text" [(ngModel)]="groups.member3"></ion-input>
+        </ion-item>
+
         </ion-list> 
     
     <button ion-button block (click)="save()">Speichern</button>

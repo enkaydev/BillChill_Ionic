@@ -1,24 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams , ViewController } from 'ionic-angular';
 import { DBService } from '../../services/db.service'; 
 
-/*
-  Generated class for the Groups page.
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-groups',
   templateUrl: 'groups.html'
 })
 export class GroupsPage {
-
+    public button: any;
     public groups: any = {};
     public isNew = true;
     public action = 'hinzufügen';
     public isoDate = '';
-   
+   @ViewChild('Members') Members;
   constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
@@ -57,6 +52,6 @@ save() {
 
     addMember(){
 
-
+        this.Members.nativeElement = "Test"
     }
 }
