@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
-
+import { DBService } from '../../services/db.service'; 
 import { NavController } from 'ionic-angular';
 
 @Component({
@@ -24,12 +24,10 @@ export class HomePage {
   ionViewDidLoad() {
  
         this.barChart = new Chart(this.barCanvas.nativeElement, {
- 
-            type: 'bar',
+             type: 'bar',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange}}"],
                 datasets: [{
-                    label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
@@ -125,6 +123,4 @@ export class HomePage {
         });
  
     }
- 
- 
-}
+  }

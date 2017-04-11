@@ -31,9 +31,8 @@ export class GroupsPage {
             this.isoDate = this.groups.Date.toISOString().slice(0, 10);
         }
   }
-
 save() {
-        this.groups.Date = new Date(this.isoDate);
+        this.groups.Date = new Date();
         if (this.isNew) {
             this.dbService.add(this.groups)
                 .catch(console.error.bind(console));
@@ -56,6 +55,3 @@ save() {
         this.viewCtrl.dismiss(this.groups);
     }
 }
-
-
-

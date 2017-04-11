@@ -25,19 +25,16 @@
              <ion-input text-right type="text" [(ngModel)]="groups.name"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label>Mitglied 1</ion-label>
-             <ion-input text-right type="text" [(ngModel)]="groups.member1"></ion-input>
+            <ion-label>Mitglied </ion-label>
+             
+             <ion-input text-right type="text" [(ngModel)]="groups.member"></ion-input>
         </ion-item>
-        <ion-item>
-            <ion-label>Mitglied 2</ion-label>
-             <ion-input text-right type="text" [(ngModel)]="groups.member2"></ion-input>
-        </ion-item>
-
-       <ion-item>
-            <ion-label>Erstellt am</ion-label>
-             <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
         
-        </ion-item> 
-            </ion-list>
+      <!--   <ion-item>
+          <ion-label>Erstellt am</ion-label>
+             <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
+                </ion-item> -->
+            </ion-list> 
+    
     <button ion-button block (click)="save()">Speichern</button>
 </ion-content>  
