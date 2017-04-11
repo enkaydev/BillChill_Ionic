@@ -16,9 +16,9 @@ export class GroupsPage {
 
     public groups: any = {};
     public isNew = true;
-    public action = 'Add';
+    public action = 'hinzufügen';
     public isoDate = '';
-    public name = '';
+   // public name = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
@@ -27,7 +27,7 @@ export class GroupsPage {
         if (editGroup) {
             this.groups = editGroup;
             this.isNew = false;
-            this.action = 'Edit';
+            this.action = 'bearbeiten';
             this.isoDate = this.groups.Date.toISOString().slice(0, 10);
         }
   }
