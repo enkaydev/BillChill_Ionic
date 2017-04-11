@@ -18,7 +18,7 @@ export class GroupsPage {
     public isNew = true;
     public action = 'hinzufügen';
     public isoDate = '';
-   // public name = '';
+   
   constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
@@ -53,5 +53,10 @@ save() {
 
     dismiss() {
         this.viewCtrl.dismiss(this.groups);
+    }
+
+    addMember(){
+
+
     }
 }

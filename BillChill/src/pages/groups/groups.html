@@ -28,13 +28,13 @@
             <ion-label>Mitglied </ion-label>
              
              <ion-input text-right type="text" [(ngModel)]="groups.member"></ion-input>
+              <button item-right (click)="addMember()"><ion-icon name="add"></ion-icon></button>
+      
+          
+
         </ion-item>
         
-      <!--   <ion-item>
-          <ion-label>Erstellt am</ion-label>
-             <ion-datetime displayFormat="MMMM D, YYYY" pickerFormat="MMMM D YYYY" [(ngModel)]="isoDate"></ion-datetime>
-                </ion-item> -->
-            </ion-list> 
+        </ion-list> 
     
     <button ion-button block (click)="save()">Speichern</button>
 </ion-content>  
