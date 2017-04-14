@@ -16,8 +16,6 @@
 
 <ion-content>
 
- 
-
 <ion-card *ngFor="let Groups of Groups" >
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
@@ -28,7 +26,7 @@
   <p >{{Groups.member1}} </p> 
   <p >{{Groups.member2}} </p> 
   <p >{{Groups.member3}} </p> 
-     </ion-card-content>
+  </ion-card-content>
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small (click)="showDetail(Groups)">
