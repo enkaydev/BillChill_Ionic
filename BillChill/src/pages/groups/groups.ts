@@ -14,7 +14,11 @@ export class GroupsPage {
     public action = 'hinzufügen';
     public isoDate = '';
    @ViewChild('Members') Members;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private dbService: DBService,private viewCtrl: ViewController,) {}
+  constructor(
+      public navCtrl: NavController,
+       public navParams: NavParams,
+        private dbService: DBService,
+        private viewCtrl: ViewController,) {}
 
   ionViewDidLoad() {
     let editGroup = this.navParams.get('groups');

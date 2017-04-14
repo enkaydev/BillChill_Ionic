@@ -7,6 +7,7 @@ window["PouchDB"] = PouchDB;
 export class DBService {  
     private _db;
     private _Groups;
+    
 
     initDB() {
         PouchDB.plugin(cordovaSqlitePlugin);

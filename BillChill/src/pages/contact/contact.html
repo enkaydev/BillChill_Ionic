@@ -3,7 +3,7 @@
 <ion-navbar>
 
 <ion-title>Ausgaben verwalten </ion-title>
-    <ion-buttons end (click)="showDetail()">
+    <ion-buttons end (click)="showDetail(Groups)">
       <button ion-button icon-only>
         <ion-icon name="add"></ion-icon>
       </button>
@@ -12,13 +12,13 @@
 </ion-header>
 
 <ion-content>
-<ion-card>
+<ion-card *ngFor="let Groups of Groups">
   <ion-item>
       <ion-icon name="cafe" item-right></ion-icon>
-      <h1>NameAusgabe:</h1>
+      <h1>NameAusgabe: {{Groups.ausgaben}} </h1>
     </ion-item>
   <ion-card-content>
-    <p>Gesamtbetrag: €</p>
+    <p>Gesamtbetrag: {{Groups.sum}}  €</p>
   </ion-card-content>
   <ion-row>
     <ion-col>
