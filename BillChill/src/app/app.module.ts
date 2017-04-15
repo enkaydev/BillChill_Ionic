@@ -12,6 +12,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IonicStorageModule } from '@ionic/storage'
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 import { DBService } from '../services/db.service';
+import { DBService1 } from '../services/db.service.1';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { DBService } from '../services/db.service';
    
     
    
-    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService, SQLite,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService,DBService1, SQLite,
   ]
 })
 export class AppModule {}

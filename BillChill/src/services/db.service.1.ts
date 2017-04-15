@@ -4,72 +4,72 @@ import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 window["PouchDB"] = PouchDB; 
 
 @Injectable()
-export class DBService {  
-    private _db0;
-    private _Groups;
+export class DBService1 {  
+    private _db1;
+    private _Ausgaben;
     
-    
+  
 
     initDB() {
         PouchDB.plugin(cordovaSqlitePlugin);
-        this._db0 = new PouchDB('BillChill.db', { adapter: 'cordova-sqlite' });
+        this._db1 = new PouchDB('Ausgaben.db', { adapter: 'cordova-sqlite' });
         
     }
 
 add(data) {  
-    return this._db0.post(data);
+    return this._db1.post(data);
 }   
 
 update(data) {  
-    return this._db0.put(data);
+    return this._db1.put(data);
 }
 
 delete(data) {  
-    return this._db0.remove(data);
+    return this._db1.remove(data);
 }
 
 getAll() {  
 
-    if (!this._Groups) {
-        return this._db0.allDocs({ include_docs: true})
+    if (!this._Ausgaben) {
+        return this._db1.allDocs({ include_docs: true})
             .then(docs => {
 
                 // Each row has a .doc object and we just want to send an 
                 // array of birthday objects back to the calling controller,
                 // so let's map the array to contain just the .doc objects.
 
-                this._Groups = docs.rows.map(row => {
+                this._Ausgaben = docs.rows.map(row => {
                     // Dates are not automatically converted from a string.
                     row.doc.Date = new Date(row.doc.Date);
                     return row.doc;
                 });
 
                 // Listen for changes on the database.
-                this._db0.changes({ live: true, since: 'now', include_docs: true})
+                this._db1.changes({ live: true, since: 'now', include_docs: true})
                     .on('change', this.onDatabaseChange);
 
-                 return this._Groups;
+                 return this._Ausgaben;
             });
     } else {
         // Return cached data as a promise
-        return Promise.resolve(this._Groups);
+        return Promise.resolve(this._Ausgaben);
     }
 }
 
 private onDatabaseChange = (change) => {  
-    var index = this.findIndex(this._Groups, change.id);
-    var Groups = this._Groups[index];
+    var index = this.findIndex(this._Ausgaben, change.id);
+    var Ausgaben = this._Ausgaben[index];
 
     if (change.deleted) {
-        if (Groups) {
-            this._Groups.splice(index, 1); // delete
+        if (Ausgaben) {
+            this._Ausgaben.splice(index, 1); // delete
         }
     } else {
         change.doc.Date = new Date(change.doc.Date);
-        if (Groups && Groups._id === change.id) {
-            this._Groups[index] = change.doc; // update
+        if (Ausgaben && Ausgaben._id === change.id) {
+            this._Ausgaben[index] = change.doc; // update
         } else {
-            this._Groups.splice(index, 0, change.doc) // insert
+            this._Ausgaben.splice(index, 0, change.doc) // insert
         }
     }
 }

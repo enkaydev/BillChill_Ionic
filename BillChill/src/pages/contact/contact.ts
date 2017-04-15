@@ -4,6 +4,7 @@ import { NavController, Platform,ToastController, ModalController } from 'ionic-
 import { AlertController } from 'ionic-angular';
 import { SQLite  } from '@ionic-native/sqlite';
 import { DBService } from '../../services/db.service'; 
+import { DBService1 } from '../../services/db.service.1'; 
 import { AusgabenPage } from '../ausgaben/ausgaben'; 
 
 @Component({
@@ -12,7 +13,7 @@ import { AusgabenPage } from '../ausgaben/ausgaben';
 })
 export class ContactPage {
 data: any;
-public Groups= [];
+public Ausgaben= [];
   constructor(
   public navCtrl: NavController,
   private platform: Platform, 
@@ -21,19 +22,22 @@ public Groups= [];
   private sqlite: SQLite, 
   private toastCtrl: ToastController, 
   private dbService: DBService,
+  private dbService1: DBService1,
   private zone: NgZone,
   private modalCtrl: ModalController,) {
+
+
 
   }
 
 ionViewDidLoad() {
         this.platform.ready().then(() => {
-            this.dbService.initDB();
+            this.dbService1.initDB();
 
-            this.dbService.getAll()
+            this.dbService1.getAll()
                 .then(data => {
                     this.zone.run(() => {
-                        this.Groups = data;
+                        this.Ausgaben = data;
                     });
                 })
                 .catch(console.error.bind(console));
@@ -43,17 +47,17 @@ ionViewDidLoad() {
 
 
     save() {
-       this.dbService.add(this.Groups)
+       this.dbService.add(this.Ausgaben)
                 .catch(console.error.bind(console));
     }
 
     delete() {
-        this.dbService.delete(this.Groups)
+        this.dbService.delete(this.Ausgaben)
             .catch(console.error.bind(console));
          }
 
-showDetail(groups) {
-        let modal = this.modalCtrl.create(AusgabenPage, { Groups: groups  });
+showDetail(ausgaben) {
+        let modal = this.modalCtrl.create(AusgabenPage, { ausgaben: ausgaben  });
         modal.present();
     }
 

@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams , ViewController } from 'ionic-angular';
 import { DBService } from '../../services/db.service'; 
+import { DBService1 } from '../../services/db.service.1'; 
 
 
 @Component({
