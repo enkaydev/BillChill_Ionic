@@ -12,7 +12,7 @@ export class AusgabenPage {
     public isNew = true;
     public action = 'hinzufügen';
     public isoDate = '';
-   
+   public currentGroup: any;
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -22,6 +22,8 @@ export class AusgabenPage {
 
   ionViewDidLoad() {
     let editAusgaben = this.navParams.get('ausgaben');
+this.currentGroup = this.navParams.get('group');
+console.log(this.currentGroup);
 
         if (editAusgaben) {
             this.ausgaben = editAusgaben;
