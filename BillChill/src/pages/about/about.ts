@@ -5,6 +5,8 @@ import { AlertController } from 'ionic-angular';
 import { SQLite  } from '@ionic-native/sqlite';
 import { DBService } from '../../services/db.service'; 
 import { GroupsPage } from '../groups/groups';  
+import { AusgabenPage } from '../ausgaben/ausgaben';  
+import { ContactPage } from '../contact/contact';
 //#####################################################
 
 
@@ -61,6 +63,11 @@ public Groups= [];
 showDetail(group) {
         let modal = this.modalCtrl.create(GroupsPage, { groups: group });
         modal.present();
+    }
+
+    openAusgaben(group){
+let modal1 = this.modalCtrl.create(ContactPage, { groups: group  });
+ modal1.present();
     }
  
 //#######################################################################################
