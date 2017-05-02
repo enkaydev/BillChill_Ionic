@@ -10,7 +10,7 @@ export class AusgabenPage {
     public button: any; 
     public ausgaben: any = {};
     public isNew = true;
-    public action = 'hinzufügen';
+    public action = 'hinzufügen ';
     public isoDate = '';
    public currentGroup: any;
   constructor(
