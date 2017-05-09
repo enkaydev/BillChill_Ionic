@@ -1,0 +1,51 @@
+
+Usecase:   Gruppe hinzufügen
+####### Gewichtungsfaktor Average ##########
+Number of User Inputs: 5
+Number of User Outputs: 1
+Number of User Unquiries: 1 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts / keyvalue.ts
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+
+Usecase:   Gruppe bearbeiten
+####### Gewichtungsfaktor Average ##########
+Number of User Inputs: 5
+Number of User Outputs: 1
+Number of User Unquiries: 2 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts /
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+####### Gewichtungsfaktor Average ##########
+Usecase:   Gruppe löschen
+
+Number of User Inputs: 0
+Number of User Outputs: 1
+Number of User Unquiries: 2 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts /
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+
+________________________________________________________________________________________________________________________________________
+
+Usecase: Ausgaben hinzufügen
+####### Gewichtungsfaktor complex ##########
+Number of User Inputs: 3
+Number of User Outputs: 1
+Number of User Unquiries: 1 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts / keyvalue.ts
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+
+Usecase:   Ausgaben bearbeiten
+####### Gewichtungsfaktor Average ##########
+Number of User Inputs: 3
+Number of User Outputs: 1
+Number of User Unquiries: 2 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts /
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+
+Usecase:   Ausgaben löschen
+####### Gewichtungsfaktor Average ##########
+Number of User Inputs: 0
+Number of User Outputs: 1
+Number of User Unquiries: 2 
+Number of Files: 8 / Tabs.ts, Tabs.html / app.module.ts / about.html abouts.ts / groups.html /groups.ts / dbservice.ts /
+Number of External Interfaces: 3 PuchDB/SQLite/keybyvalueDB
+
