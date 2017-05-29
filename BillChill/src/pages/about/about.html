@@ -16,16 +16,17 @@
 
 <ion-content>
 
-<ion-card *ngFor="let Groups of Groups" > <!--(click)="openAusgaben(Groups)" --> 
+<ion-card *ngFor="let Groups of Groups" > <!--(click)="SetGroup(Groups)" --> 
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
       <h1 >{{Groups.name}}</h1>
     </ion-item>
   <ion-card-content>
-  <p >{{Groups.member0}} </p> 
+  <p >{{Groups.member0}} </p>
   <p >{{Groups.member1}} </p> 
   <p >{{Groups.member2}} </p> 
   <p >{{Groups.member3}} </p> 
+  
   </ion-card-content>
   <ion-row>
     <ion-col>

@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Chart } from 'chart.js';
 import { DBService } from '../../services/db.service'; 
 import { NavController } from 'ionic-angular';
+import { DBService1 } from '../../services/db.service.1'; 
 
 @Component({
   selector: 'page-home',
@@ -9,7 +10,7 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
- @ViewChild('barCanvas') barCanvas;
+  @ViewChild('barCanvas') barCanvas;
   @ViewChild('doughnutCanvas') doughnutCanvas;
   @ViewChild('lineCanvas') lineCanvas;
  
@@ -17,7 +18,7 @@ export class HomePage {
     doughnutChart: any;
     lineChart: any;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, private dbService1: DBService1,) {
 
   }
 
@@ -26,7 +27,7 @@ export class HomePage {
         this.barChart = new Chart(this.barCanvas.nativeElement, {
              type: 'bar',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange}}"],
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                 datasets: [{
                     data: [12, 19, 3, 5, 2, 3],
                     backgroundColor: [
@@ -64,7 +65,7 @@ export class HomePage {
  
             type: 'doughnut',
             data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                labels: ["Kaffee", "Essen", "Reisekosten", "Unterkunft", "Kultur", "Genuss"],
                 datasets: [{
                     label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],
@@ -88,39 +89,10 @@ export class HomePage {
             }
  
         });
- 
-        this.lineChart = new Chart(this.lineCanvas.nativeElement, {
- 
-            type: 'line',
-            data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [
-                    {
-                        label: "My First dataset",
-                        fill: false,
-                        lineTension: 0.1,
-                        backgroundColor: "rgba(75,192,192,0.4)",
-                        borderColor: "rgba(75,192,192,1)",
-                        borderCapStyle: 'butt',
-                        borderDash: [],
-                        borderDashOffset: 0.0,
-                        borderJoinStyle: 'miter',
-                        pointBorderColor: "rgba(75,192,192,1)",
-                        pointBackgroundColor: "#fff",
-                        pointBorderWidth: 1,
-                        pointHoverRadius: 5,
-                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                        pointHoverBorderColor: "rgba(220,220,220,1)",
-                        pointHoverBorderWidth: 2,
-                        pointRadius: 1,
-                        pointHitRadius: 10,
-                        data: [65, 59, 80, 81, 56, 55, 40],
-                        spanGaps: false,
-                    }
-                ]
-            }
- 
-        });
- 
+
+
+
+
+         
     }
   }

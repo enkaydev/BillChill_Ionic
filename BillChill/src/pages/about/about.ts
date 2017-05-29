@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import {Storage} from '@ionic/storage';
+
 import { NavController, Platform,ToastController, ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite  } from '@ionic-native/sqlite';
@@ -7,6 +7,7 @@ import { DBService } from '../../services/db.service';
 import { GroupsPage } from '../groups/groups';  
 import { AusgabenPage } from '../ausgaben/ausgaben';  
 import { ContactPage } from '../contact/contact';
+
 //#####################################################
 
 
@@ -23,9 +24,10 @@ public Groups= [];
   constructor(
   public navCtrl: NavController,
   private platform: Platform, 
-  public storage: Storage,
+  
   public alertCtrl: AlertController, 
   private sqlite: SQLite, 
+  
   private toastCtrl: ToastController, 
   private dbService: DBService,
   private zone: NgZone,
@@ -70,6 +72,8 @@ let modal1 = this.modalCtrl.create(ContactPage, { groups: group  });
  modal1.present();
     }
  
+
+
 //#######################################################################################
 // Add Group Pop Up Fenster
 public showPrompt() {

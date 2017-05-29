@@ -13,23 +13,31 @@
 
 <ion-content padding >  
     <ion-list>
+        
         <ion-item>
-          <ion-label></ion-label>
-          <ion-label></ion-label>
-            <ion-label>Bezeichnung Ausgabe</ion-label>
-             <ion-input text-right type="text" [(ngModel)]="ausgaben.bezeichnung"></ion-input>
-        </ion-item>
+          <ion-label>Kategorie</ion-label>
+         <ion-select [(ngModel)]="ausgaben.category">
+          <ion-option value="Sonstiges">Sonstiges</ion-option>
+          <ion-option value="Essen">Essen</ion-option>
+          <ion-option value="Reisekosten">Reisekosten</ion-option>
+          <ion-option value="Unterkunft">Unterkunft</ion-option>
+          <ion-option value="Genuss">Genuss</ion-option>
+          <ion-option value="Kultur">Kultur</ion-option>
+        </ion-select>
+       </ion-item>
         <ion-item>
-          <ion-label></ion-label>
+          
             <ion-label>Gesamtbetrag</ion-label>
              <ion-input text-right type="text" [(ngModel)]="ausgaben.sum"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label></ion-label>
+          
             <ion-label>Gruppe</ion-label>
              <ion-input text-right type="text" [(ngModel)]="ausgaben.group"></ion-input>
         </ion-item>
+
+        
        
         </ion-list> 
     

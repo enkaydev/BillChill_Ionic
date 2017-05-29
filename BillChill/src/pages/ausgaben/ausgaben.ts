@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ViewController } from 'ionic-angular';
 import { DBService } from '../../services/db.service'; 
 import { DBService1 } from '../../services/db.service.1'; 
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
 @Component({
   selector: 'page-ausgaben',
   templateUrl: 'ausgaben.html'
@@ -18,7 +19,8 @@ export class AusgabenPage {
     public navParams: NavParams,
     private dbService: DBService,
     private dbService1: DBService1,
-    private viewCtrl: ViewController,) {}
+    private viewCtrl: ViewController,
+    private sqlite: SQLite) {}
 
   ionViewDidLoad() {
     let editAusgaben = this.navParams.get('ausgaben');
@@ -31,6 +33,26 @@ console.log(this.currentGroup);
             this.action = 'bearbeiten';
             this.isoDate = this.ausgaben.Date.toISOString().slice(0, 10);
         }
+
+
+this.sqlite.create({
+  name: 'data.db',
+  location: 'default'
+})
+  .then((db: SQLiteObject) => {
+
+
+    db.executeSql('create table danceMoves(name VARCHAR(32))', {})
+      .then(() => console.log('Executed SQL'))
+      .catch(e => console.log(e));
+
+
+  })
+  .catch(e => console.log(e));
+
+
+
+
   }
 save() {
         this.ausgaben.Date = new Date();
@@ -55,5 +77,8 @@ save() {
     dismiss() {
         this.viewCtrl.dismiss(this.ausgaben);
     }
+    
+
+
     
 }

@@ -1,5 +1,4 @@
 import { Component, NgZone } from '@angular/core';
-import {Storage} from '@ionic/storage';
 import { NavController, Platform,ToastController, ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite  } from '@ionic-native/sqlite';
@@ -17,7 +16,6 @@ public Ausgaben= [];
   constructor(
   public navCtrl: NavController,
   private platform: Platform, 
-  public storage: Storage,
   public alertCtrl: AlertController, 
   private sqlite: SQLite, 
   private toastCtrl: ToastController, 
@@ -33,7 +31,7 @@ public Ausgaben= [];
 ionViewDidLoad() {
         this.platform.ready().then(() => {
             this.dbService1.initDB();
-
+        
             this.dbService1.getAll()
                 .then(data => {
                     this.zone.run(() => {
@@ -43,7 +41,6 @@ ionViewDidLoad() {
                 .catch(console.error.bind(console));
         });
     }
-
 
 
     save() {

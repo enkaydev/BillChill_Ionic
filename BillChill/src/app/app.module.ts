@@ -50,7 +50,7 @@ import { DBService1 } from '../services/db.service.1';
    
     
    
-    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService,DBService1, SQLite,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},DBService,DBService1, SQLite, 
   ]
 })
 export class AppModule {}

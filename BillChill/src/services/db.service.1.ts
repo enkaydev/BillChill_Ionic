@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';  
 import * as PouchDB from 'pouchdb';  
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
+
 window["PouchDB"] = PouchDB; 
 
 @Injectable()
@@ -56,6 +57,9 @@ getAll() {
     }
 }
 
+
+
+
 private onDatabaseChange = (change) => {  
     var index = this.findIndex(this._Ausgaben, change.id);
     var Ausgaben = this._Ausgaben[index];
@@ -84,5 +88,5 @@ private findIndex(array, id) {
     return low;
 }
 
-
-}
+  
+   }

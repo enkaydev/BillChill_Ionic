@@ -15,11 +15,11 @@
 <ion-card *ngFor="let Ausgaben of Ausgaben">
   <ion-item>
       <ion-icon name="cafe" item-right></ion-icon>
-      <h1> {{Ausgaben.bezeichnung}} </h1>
+      <h1> {{Ausgaben.category}} </h1>
     </ion-item>
   <ion-card-content>
     <p>Gesamtbetrag: {{Ausgaben.sum}}  €</p>
-    <p>Gruppe: {{Ausgaben.group}} </p>
+  <!--  <p>Gruppe: {{Ausgaben.group}} </p> -->
   </ion-card-content>
   <ion-row>
     <ion-col>
