@@ -143,6 +143,7 @@ public setCurrentGroup(group){
 
    this.storage.get('Groupname').then((val) => {
     console.log('Der Name der Gruppe ist', val);
+    console.log('Keys sind:', this.storage.keys())
    });
  }
 

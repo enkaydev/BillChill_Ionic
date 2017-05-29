@@ -3,6 +3,7 @@ import { NavController, NavParams,ViewController } from 'ionic-angular';
 import { DBService } from '../../services/db.service'; 
 import { DBService1 } from '../../services/db.service.1'; 
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite';
+import { Storage } from '@ionic/storage';
 @Component({
   selector: 'page-ausgaben',
   templateUrl: 'ausgaben.html'
@@ -20,7 +21,8 @@ export class AusgabenPage {
     private dbService: DBService,
     private dbService1: DBService1,
     private viewCtrl: ViewController,
-    private sqlite: SQLite) {}
+    private sqlite: SQLite,
+    private storage: Storage) {}
 
   ionViewDidLoad() {
     let editAusgaben = this.navParams.get('ausgaben');
@@ -35,27 +37,12 @@ console.log(this.currentGroup);
         }
 
 
-this.sqlite.create({
-  name: 'data.db',
-  location: 'default'
-})
-  .then((db: SQLiteObject) => {
-
-
-    db.executeSql('create table danceMoves(name VARCHAR(32))', {})
-      .then(() => console.log('Executed SQL'))
-      .catch(e => console.log(e));
-
-
-  })
-  .catch(e => console.log(e));
-
-
-
 
   }
 save() {
         this.ausgaben.Date = new Date();
+        var value1=this.getCurrentGroup();
+          this.ausgaben.group = value1;
         if (this.isNew) {
             this.dbService1.add(this.ausgaben)
                 .catch(console.error.bind(console));
@@ -78,7 +65,12 @@ save() {
         this.viewCtrl.dismiss(this.ausgaben);
     }
     
+public getCurrentGroup(){
 
+   this.storage.get('Groupname').then((val) => {
+    return val;
+   });
+ }
 
     
 }
