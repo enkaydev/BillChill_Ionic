@@ -7,7 +7,7 @@ import { DBService } from '../../services/db.service';
 import { GroupsPage } from '../groups/groups';  
 import { AusgabenPage } from '../ausgaben/ausgaben';  
 import { ContactPage } from '../contact/contact';
-
+import { Storage } from '@ionic/storage';
 //#####################################################
 
 
@@ -31,7 +31,8 @@ public Groups= [];
   private toastCtrl: ToastController, 
   private dbService: DBService,
   private zone: NgZone,
-  private modalCtrl: ModalController,) {
+  private modalCtrl: ModalController,
+  private storage: Storage) {
 
  
   }
@@ -71,6 +72,7 @@ showDetail(group) {
 let modal1 = this.modalCtrl.create(ContactPage, { groups: group  });
  modal1.present();
     }
+ 
  
 
 
@@ -131,7 +133,18 @@ public presentToast(Messagetoshow) {
   toast.present();
 }
 
+public setCurrentGroup(group){
 
+   this.storage.set('Groupname', group);
+   console.log("Gruppe als Aktiv gesetzt", group);
+ }
+
+ public getCurrentGroup(){
+
+   this.storage.get('Groupname').then((val) => {
+    console.log('Der Name der Gruppe ist', val);
+   });
+ }
 
 }
 

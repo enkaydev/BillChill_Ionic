@@ -16,7 +16,7 @@
 
 <ion-content>
 
-<ion-card *ngFor="let Groups of Groups" > <!--(click)="SetGroup(Groups)" --> 
+<ion-card *ngFor="let Groups of Groups" (click)="getCurrentGroup(Groups)" > 
   <ion-item>
       <ion-icon name="contacts" item-right></ion-icon>
       <h1 >{{Groups.name}}</h1>

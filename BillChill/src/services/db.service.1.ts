@@ -13,7 +13,7 @@ export class DBService1 {
 
     initDB() {
         PouchDB.plugin(cordovaSqlitePlugin);
-        this._db1 = new PouchDB('Ausgaben.db', { adapter: 'cordova-sqlite' });
+        this._db1 = new PouchDB('Ausgaben.db');
         
     }
 
