@@ -10,18 +10,18 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine', 'angular-cli'],
+    frameworks: ["jasmine", "angular-cli"],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-remap-istanbul'),
-      require('karma-mocha-reporter'),
-      require('angular-cli/plugins/karma')
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-remap-istanbul"),
+      require("karma-mocha-reporter"),
+      require("angular-cli/plugins/karma")
     ],
 
     // list of files / patterns to load in the browser
     files: [
-      {pattern: '.src/groups.ts, watched: false'}
+      {pattern: ".src/groups.ts, watched: false"}
     ],
 
 
@@ -33,22 +33,22 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './src/test.ts': ['angular-cli']
+      "./src/test.ts": ["angular-cli"]
     },
 
  mime: {
-      'text/x-typescript': ['ts','tsx']
+      "text/x-typescript": ["ts","tsx"]
     },
     remapIstanbulReporter: {
       reports: {
-        html: 'coverage',
-        lcovonly: './coverage/coverage.lcov'
+        html: "coverage",
+        lcovonly: "./coverage/coverage.lcov"
       },
 
       },
     angularCli: {
-      config: './angular-cli.json',
-      environment: 'dev'
+      config: "./angular-cli.json",
+      environment: "dev"
     },
 
     // test results reporter to use
@@ -57,8 +57,8 @@ module.exports = function(config) {
     //reporters: ['progress'],
 
      reporters: config.angularCli && config.angularCli.codeCoverage
-              ? ['mocha', 'karma-remap-istanbul']
-              : ['mocha'],
+              ? ["mocha", "karma-remap-istanbul"]
+              : ["mocha"],
 
 
     // web server port
@@ -80,7 +80,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ["Chrome"],
 
 
     // Continuous Integration mode

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';  
+import { Injectable } from "@angular/core";  
 import * as PouchDB from 'pouchdb';  
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 

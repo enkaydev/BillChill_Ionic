@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild } from "@angular/core";
 import { NavController, NavParams , ViewController } from 'ionic-angular';
 import { DBService } from '../../services/db.service'; 
 import { DBService1 } from '../../services/db.service.1'; 
@@ -27,7 +27,7 @@ export class GroupsPage {
         if (editGroup) {
             this.groups = editGroup;
             this.isNew = false;
-            this.action = 'bearbeiten';
+            this.action = "bearbeiten";
             this.isoDate = this.groups.Date.toISOString().slice(0, 10);
         }
   }
