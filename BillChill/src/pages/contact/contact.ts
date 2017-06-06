@@ -31,7 +31,7 @@ public Ausgaben= [];
 ionViewDidLoad() {
         this.platform.ready().then(() => {
             this.dbService1.initDB();
-        
+           
             this.dbService1.getAll()
                 .then(data => {
                     this.zone.run(() => {
@@ -42,6 +42,14 @@ ionViewDidLoad() {
         });
     }
 
+
+findgroups(){
+
+console.log('Folgende Werte gefunden',this.dbService1.findGroups )
+return this.dbService1.findGroups
+
+
+}
 
     save() {
        this.dbService.add(this.Ausgaben)

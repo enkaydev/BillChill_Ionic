@@ -3,7 +3,7 @@ import * as PouchDB from 'pouchdb';
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
 window["PouchDB"] = PouchDB; 
-PouchDB.plugin(require('pouchdb-find'));
+
 
 @Injectable()
 export class DBService1 {  
@@ -56,9 +56,25 @@ getAll() {
         // Return cached data as a promise
         return Promise.resolve(this._Ausgaben);
     }
+
+
 }
 
+findGroups(){
 
+this._db1.createIndex({
+  index: {fields: ['name']}
+  }).then(function () {
+  return this.db1.find({
+    selector: {name: {$eq: 'Test'}},
+   
+  });
+  
+});
+
+
+
+}
 
 
 private onDatabaseChange = (change) => {  

@@ -15,6 +15,8 @@ export class AusgabenPage {
     public action = 'hinzufügen ';
     public isoDate = '';
    public currentGroup: any;
+
+   
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
@@ -34,11 +36,23 @@ console.log(this.currentGroup);
             this.isNew = false;
             this.action = 'bearbeiten';
             this.isoDate = this.ausgaben.Date.toISOString().slice(0, 10);
+            
         }
 
 
-
   }
+
+
+findgroups(){
+
+console.log('Folgende Werte gefunden',this.dbService1.findGroups )
+
+return this.dbService1.findGroups
+
+}
+
+
+
 save() {
         this.ausgaben.Date = new Date();
         var value1=this.getCurrentGroup();

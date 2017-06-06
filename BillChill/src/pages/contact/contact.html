@@ -12,7 +12,7 @@
 </ion-header>
 
 <ion-content>
-<ion-card *ngFor="let Ausgaben of Ausgaben">
+<ion-card *ngFor="let Ausgaben of Ausgaben" (click)="findgroups()">
   <ion-item>
       <ion-icon name="cafe" item-right></ion-icon>
       <h1> {{Ausgaben.category}} </h1>

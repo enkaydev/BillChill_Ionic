@@ -65,7 +65,7 @@ export class HomePage {
  
             type: 'doughnut',
             data: {
-                labels: ["Kaffee", "Essen", "Reisekosten", "Unterkunft", "Kultur", "Genuss"],
+                labels: ["Sonstiges", "Essen", "Reisekosten", "Unterkunft", "Kultur", "Genuss"],
                 datasets: [{
                     label: '# of Votes',
                     data: [12, 19, 3, 5, 2, 3],

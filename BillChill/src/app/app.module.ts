@@ -25,8 +25,7 @@ import { DBService1 } from '../services/db.service.1';
     TabsPage,
     GroupsPage,
     AusgabenPage,
-   
-  ],
+     ],
   imports: [
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
@@ -48,9 +47,7 @@ import { DBService1 } from '../services/db.service.1';
     StatusBar,
     SplashScreen,
     SQLite,
-   
     
-   
     {provide: ErrorHandler, useClass: IonicErrorHandler},DBService,DBService1, SQLite, 
   ]
 })
