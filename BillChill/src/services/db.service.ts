@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as PouchDB from 'pouchdb';  
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 window["PouchDB"] = PouchDB; 
-PouchDB.plugin(require('pouchdb-find'));
+//PouchDB.plugin(require('pouchdb-find'));
 @Injectable()
 export class DBService {  
     private _db0;
