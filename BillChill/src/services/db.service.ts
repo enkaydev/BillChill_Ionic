@@ -79,7 +79,7 @@ private findIndex(array, id) {
     var low = 0, high = array.length, mid;
     while (low < high) {
     mid = (low + high) >>> 1;
-    array[mid]._id < id ? low = mid + 1 : high = mid
+    array[mid]._id < id ? low = mid + 1 : high = mid;
     }
     return low;
 }

@@ -1,14 +1,14 @@
 import { Component, NgZone } from '@angular/core';
 
-import { NavController, Platform,ToastController, ModalController } from 'ionic-angular';
+import { NavController, Platform, ToastController, ModalController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { SQLite  } from '@ionic-native/sqlite';
 import { DBService } from '../../services/db.service'; 
 import { GroupsPage } from '../groups/groups';  
-import { AusgabenPage } from '../ausgaben/ausgaben';  
+import { AusgabenPage } from "../ausgaben/ausgaben";  
 import { ContactPage } from '../contact/contact';
 import { Storage } from '@ionic/storage';
-//#####################################################
+// #####################################################
 
 
 
