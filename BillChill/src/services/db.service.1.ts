@@ -3,11 +3,9 @@ import * as PouchDB from 'pouchdb';
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 
 window["PouchDB"] = PouchDB; 
-<<<<<<< HEAD
 
-=======
 //PouchDB.plugin(require('pouchdb-find'));
->>>>>>> origin/master
+
 
 @Injectable()
 export class DBService1 {  
