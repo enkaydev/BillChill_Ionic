@@ -2,7 +2,11 @@ import { Injectable } from '@angular/core';
 import * as PouchDB from 'pouchdb';  
 import cordovaSqlitePlugin from 'pouchdb-adapter-cordova-sqlite';
 window["PouchDB"] = PouchDB; 
+<<<<<<< HEAD
 
+=======
+//PouchDB.plugin(require('pouchdb-find'));
+>>>>>>> origin/master
 @Injectable()
 export class DBService {  
     private _db0;
@@ -79,7 +83,7 @@ private findIndex(array, id) {
     var low = 0, high = array.length, mid;
     while (low < high) {
     mid = (low + high) >>> 1;
-    array[mid]._id < id ? low = mid + 1 : high = mid
+    array[mid]._id < id ? low = mid + 1 : high = mid;
     }
     return low;
 }
