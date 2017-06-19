@@ -15,9 +15,10 @@ export class GroupsPage {
     public action = 'hinzufügen';
     public isoDate = '';
    @ViewChild('Members') Members;
+
   constructor(
-      public navCtrl: NavController,
-       public navParams: NavParams,
+        public navCtrl: NavController,
+        public navParams: NavParams,
         private dbService: DBService,
         private viewCtrl: ViewController,) {}
 

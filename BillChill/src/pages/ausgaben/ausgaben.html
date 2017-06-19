@@ -25,16 +25,33 @@
           <ion-option value="Kultur">Kultur</ion-option>
         </ion-select>
        </ion-item>
+
+<ion-item>
+          <ion-label>Bezahlt von</ion-label>
+         <ion-select [(ngModel)]="ausgaben.bezahltvon">
+          <ion-option value="Peter">Peter</ion-option>
+          <ion-option value="Hans">Hans</ion-option>
+          <ion-option value="Markus">Markus</ion-option>
+          
+        </ion-select>
+       </ion-item>
+
+
+
+
         <ion-item>
           
-            <ion-label>Gesamtbetrag</ion-label>
+            <ion-label>Betrag</ion-label>
              <ion-input text-right type="text" [(ngModel)]="ausgaben.sum"></ion-input>
         </ion-item>
 
-       <ion-item>
+
+
+
+     <!--  <ion-item>
              <ion-label>Gruppe</ion-label>
              <ion-input text-right type="text" [(ngModel)]="ausgaben.group"></ion-input>
-        </ion-item> 
+        </ion-item> -->
 
         
        
