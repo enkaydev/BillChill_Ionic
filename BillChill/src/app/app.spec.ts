@@ -110,11 +110,34 @@ describe('AboutPage', () => {
 
     });
 
-    it('Testing init', () => {
+    it('Testting Storage Func', () => {
 
         let message = "This is a message";
 
         expect(this.storage).toBeTruthy
 
     });
+});
+
+describe('HomePage', () => {
+
+    let homex = null;
+    beforeEach(() => {
+       homex = new HomePage();
+    });
+    let nativeElemten = null;
+
+    it('Darstellung der Seiten richtig?', () => {
+
+        expect(homex.barChart).toBeDefined; 
+ 
+    });
+
+    it('Constructor vorhanden?', () => {
+
+        expect(homex.constructor).toBeDefined; 
+ 
+    });
+
+   
 });
