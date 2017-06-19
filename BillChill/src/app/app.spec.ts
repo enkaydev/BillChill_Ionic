@@ -7,11 +7,27 @@ import { ContactPage } from '../pages/contact/contact';
 import { AboutPage } from '../pages/about/about';
 import { AusgabenPage } from '../pages/ausgaben/ausgaben';
 import { TabsPage } from '../pages/tabs/tabs';
+import { DBService1 } from '../services/db.service.1';
  
 let comp: MyApp;
 let fixture: ComponentFixture<MyApp>;
 
 
+
+
+describe('DB Service CLass', () => {
+
+    let dbx = null;
+    beforeEach(() => {
+       dbx = new DBService1();
+    });
+
+    it('Darstellung der Seiten richtig?', () => {
+
+        expect(dbx.add(1)).toThrow(this._db1.post(1)); 
+ 
+    });
+});
  
 describe('Groups Page', () => {
 
