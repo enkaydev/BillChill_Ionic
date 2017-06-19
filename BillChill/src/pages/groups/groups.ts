@@ -14,6 +14,7 @@ export class GroupsPage {
     public isNew = true;
     public action = 'hinzufügen';
     public isoDate = '';
+    public testing = false;
    @ViewChild('Members') Members;
   constructor(
       public navCtrl: NavController,
@@ -36,6 +37,7 @@ save() {
         if (this.isNew) {
             this.dbService.add(this.groups)
                 .catch(console.error.bind(console));
+            this.testing = true;
         } else {
             this.dbService.update(this.groups)
                 .catch(console.error.bind(console));
